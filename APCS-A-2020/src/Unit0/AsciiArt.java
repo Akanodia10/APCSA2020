@@ -2,9 +2,9 @@ package Unit0;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
+//Name -Arnav Kanodia
+//Date - 1/31/20
+//Class -Period 2
 //Lab  -
 
 public class AsciiArt
@@ -15,10 +15,16 @@ public class AsciiArt
 		System.out.println("What type of ANIMAL YOU WILL DRAW" );
 		System.out.println("\n\n\n\n" );
 
-		System.out.println("                /\\                " );
-		System.out.println("               /  \\               " );
-		System.out.println("              /    \\              " );
-		System.out.println("             [------]             " );
+		System.out.println("       [------]        [------]      " );
+		System.out.println("       [      ]        [      ]      " );
+		System.out.println("       [      ]        [      ]      " );
+		System.out.println("       [------]        [------]      " );
+		System.out.println("                  /\\                " );
+		System.out.println("                 /  \\               " );
+		System.out.println("                /    \\              " );
+		System.out.println("               /      \\              " );
+		System.out.println("              /        \\              " );
+		System.out.println("             [----------]                " );
 		//add other output
 
 		System.out.println(" \n\n\n\nHelpFul Hints" );
