@@ -1,8 +1,8 @@
 package Unit2;
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
+//Name -Arnav Kanodia
+//Date -2/3/20
+//Class -Period 2
 //Lab  - 
 
 public class LineRunner
