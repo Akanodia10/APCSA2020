@@ -2,9 +2,9 @@ package Unit3;
 //(c) A+ Computer Science 
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
+//Name - Arnav Kanodia
+//Date - 2/5/20
+//Class - Period 2
 //Lab  -
 
 import java.util.Scanner; 
