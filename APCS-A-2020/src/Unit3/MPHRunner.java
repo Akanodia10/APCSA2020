@@ -9,7 +9,6 @@ package Unit3;
 
 import java.util.Scanner; 
 import static java.lang.System.*;
-import static java.lang.Math.*;
 
 public class MPHRunner
 {
@@ -27,8 +26,12 @@ public class MPHRunner
 		int mins = keyboard.nextInt();
 
 		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
+		test.setNums(dist, hrs, mins);
 		test.calcMPH();
-		test.print();
+		System.out.println(test);
+		
+		keyboard.close();
+
 		
 		//add more test cases
 		
