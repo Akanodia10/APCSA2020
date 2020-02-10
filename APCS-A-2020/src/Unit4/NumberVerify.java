@@ -2,21 +2,25 @@ package Unit4;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -  
-//Class -
+//Name - Arnav Kanodia
+//Date -  2/10/2020
+//Class - Period 2
 //Lab  -
 
-import static java.lang.System.*;
 
 public class NumberVerify
 {
 	public static boolean isOdd( int num )
 	{
+		if (num % 2==1 ) {
 		return true;
+		}
+		return false;
 	}
 	public static boolean isEven( int num )
 	{
-		return true;
-	}	
+		if (num % 2==0 ) {
+			return true;
+			}
+			return false;	}	
 }

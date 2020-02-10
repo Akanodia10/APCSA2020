@@ -2,9 +2,9 @@ package Unit4;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name - 
-//Date -
-//Class -
+//Name - Arnav Kanodia 
+//Date - 2/10/2020
+//Class - Period 2
 //Lab  -
 
 import static java.lang.System.*;
@@ -17,8 +17,10 @@ public class DiscountRunner
 		Scanner keyboard = new Scanner(System.in);
 		
 		out.print("Enter the original bill amount :: ");
-		double amt = keyboard.nextDouble();
-		
+		double bill = keyboard.nextDouble();
+		out.print("New Bill Amount ::" + Discount.getDiscountedBill(bill));
+        
+		keyboard.close();
 
 	}
 }
