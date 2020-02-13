@@ -1,9 +1,8 @@
 package Unit6;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Arnav Kanodia
 
-import static java.lang.System.*;
 
 public class LetterRemover
 {
@@ -12,12 +11,14 @@ public class LetterRemover
 
 	public LetterRemover()
 	{
-		//call set
+		setRemover("",' ');
+	}
+	
+	public LetterRemover(String s, char rem)
+	{
+		setRemover(s, rem);
 	}
 
-	//add in second constructor
-	
-	
 	public void setRemover(String s, char rem)
 	{
 		sentence = s;
@@ -26,12 +27,26 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned=sentence;
+		String newSentence = "";
+		int x = sentence.length();
+		
+		for (int i = 0; i < x; i++) 
+		{
+			if (sentence.charAt(i) == lookFor)
+			{
+				
+			}
+			else 
+			{
+				newSentence = newSentence + sentence.charAt(i);
+			}
+		}
+		String cleaned = newSentence;
 		return cleaned;
 	}
 
 	public String toString()
 	{
-		return sentence + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor + "\n" + removeLetters();
 	}
 }
