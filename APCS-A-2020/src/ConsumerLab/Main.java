@@ -6,6 +6,12 @@ import java.util.Scanner;
 class Main {
   public static void main(String[] args) {
 	//test reading from files
+	  
+     System.out.println(Review.sentimentVal("test"));
+     System.out.println(Review.sentimentVal("apple"));
+     System.out.println(Review.sentimentVal("brother"));
+     System.out.println(Review.sentimentVal("mother"));
+
 	//read in the positive adjectives in postiveAdjectives.txt
 	try {
 	Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
