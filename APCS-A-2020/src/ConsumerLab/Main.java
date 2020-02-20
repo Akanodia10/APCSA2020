@@ -5,25 +5,11 @@ import java.util.Scanner;
 
 class Main {
   public static void main(String[] args) {
-	//test reading from files
-	  
-     System.out.println(Review.sentimentVal("test"));
-     System.out.println(Review.sentimentVal("apple"));
-     System.out.println(Review.sentimentVal("brother"));
-     System.out.println(Review.sentimentVal("mother"));
-
-	//read in the positive adjectives in postiveAdjectives.txt
-	try {
-	Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
-	while(input.hasNextLine()){
-	String temp = input.nextLine().trim();
-	System.out.println(temp);
-
+	
+	  System.out.println("The sentiment value of glow is " +Review.sentimentVal("glow"));
+		System.out.println("The total sentiment value of simpleReview is "+Review.totalSentiment("simpleReview.txt"));
+		System.out.println("The star rating for simpleReview is " + Review.starRating("simpleReview.txt"));
+		System.out.println("Negative review: " +Review.fakeReview("simpleReview.txt", false));
+		System.out.println("Positive review: " +Review.fakeReview("simpleReview.txt", true));
 	}
-	input.close();
-	}
-	catch(Exception e){
-	System.out.println("Error reading or parsing postitiveAdjectives.txt\n" + e);
-	}
-  }
 }
