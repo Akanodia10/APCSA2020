@@ -146,11 +146,30 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+  
+  public static double totalSentiment(String filename)
+  {
+	  double sentimentTotal = 0;
+      String word = "";
+      String reviewText = textToString(filename);
+      for (int i = 0; i < reviewText.length(); i++)
+      {
+        if (reviewText.substring(i, i+1).equals(" ") || i + 1 == reviewText.length() ||reviewText.substring(i, i+1).equals("*"))
+         {
+            sentimentTotal += sentimentVal(word);
+            word = "";
+         }else{
+            word += reviewText.substring(i, i+1);
+         }
+      }
+      return sentimentTotal;
+  }
+
 
 /** Activity 2 starRating method
      Write the starRating method here which returns the number of stars for the review based on its totalSentiment.
   */
-  public static int starRating(String filename)
+  public static int starRating(String filename) 
   {
 	double sentiment = totalSentiment(filename);
     // call the totalSentiment method with the fileName
@@ -209,3 +228,4 @@ public class Review {
       return newReview;
     }
 }
+
