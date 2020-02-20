@@ -147,43 +147,65 @@ public class Review {
     }
   }
 
-/** Activity 2: totalSentiment()
-  * Write the code to total up the sentimentVals of each word in a review.
- */
-  public static double totalSentiment(String filename)
-  {
-    // read in the file contents into a string using the textToString method with the filename
-
-    // set up a sentimentTotal variable
-
-    // loop through the file contents 
-
-       // find each word
-       // add in its sentimentVal
-       // set the file contents to start after this word
-   
-   
-
-
-
-   return sentimentTotal; 
-  }
-
-
-  /** Activity 2 starRating method
+/** Activity 2 starRating method
      Write the starRating method here which returns the number of stars for the review based on its totalSentiment.
   */
   public static int starRating(String filename)
   {
+	double sentiment = totalSentiment(filename);
     // call the totalSentiment method with the fileName
 
     // determine number of stars between 0 and 4 based on totalSentiment value 
-    int stars;
+    int stars = 0;
     // write if statements here
-
-
-  
-    // return number of stars
+    if (sentiment < 0) {
+    	stars = 1;
+    }
+    else if (sentiment < 5) {
+    	stars = 2;
+    }
+    else if (sentiment < 10) {
+    	stars = 3;
+    }
+    else if (sentiment < 15) {
+    	stars = 4;
+    }else {
+    	stars = 0;
+    }
     return stars; 
   }
+  
+  public static String fakeReview(String fileName, boolean positive) {
+	  String word = "";
+	  String reviewText = textToString(fileName);
+	  String newReview = "";
+	  for (int i = 0; i < reviewText.length(); i++)
+      {
+          if (reviewText.substring(i, i+1).equals(" ") || i == reviewText.length() -1){
+        	  //adjective detection
+              if (word.startsWith("*"))
+              {
+                  String updatedAdjective = "";
+                  //in case of multiple
+                  while (updatedAdjective.equals(""))
+                	  if (positive == true) {
+                		  updatedAdjective = randomPositiveAdj();
+                	  }else {
+                		  updatedAdjective = randomNegativeAdj();
+                	  }
+                  newReview += updatedAdjective + getPunctuation(word) + " ";
+                  word = "";
+              }
+              if (i == reviewText.length() -1)
+                  word += reviewText.substring(i, i+1);
+              else {
+                  newReview += word + " ";
+                  word = "";
+              }
+          }
+          else
+              word += reviewText.substring(i, i+1);
+      }
+      return newReview;
+    }
 }
