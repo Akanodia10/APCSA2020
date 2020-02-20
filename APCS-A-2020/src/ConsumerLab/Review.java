@@ -3,8 +3,6 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Random;
-import java.io.*;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -16,7 +14,6 @@ public class Review {
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
  
   
-  private static final String SPACE = " ";
   
   static{
     try {
