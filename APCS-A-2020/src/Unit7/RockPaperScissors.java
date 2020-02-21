@@ -73,7 +73,7 @@ public class RockPaperScissors
 		}
 		else if (playChoice.equals(compChoice)) 
 		{
-			winner = "";
+			winner = " ";
 			winStatement = "!Draw Game!";
 			
 		}
