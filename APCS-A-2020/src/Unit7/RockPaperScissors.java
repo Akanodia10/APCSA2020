@@ -8,11 +8,10 @@ public class RockPaperScissors
 {
 	private String playChoice;
 	private String compChoice;
-	private String winStatement;
 
 	public RockPaperScissors()
 	{
-		setPlayers("");
+		setPlayers(" ");
 	}
 
 	public RockPaperScissors(String player)
@@ -23,73 +22,76 @@ public class RockPaperScissors
 	public void setPlayers(String player)
 	{
 		playChoice = player;
-		int num = (int) (Math.random() * 3);
-		switch(num)
+		int range = 3;
+		int rand = (int)(Math.random() * range);
+		if (rand == 0) 
 		{
-		case 0:
 			compChoice = "R";
-			break;
-		case 1:
+		}
+		else if (rand == 1)
+		{
 			compChoice = "P";
-			break;
-		case 2:
+		}
+		else 
+		{
 			compChoice = "S";
-			break;
 		}
 	}
 
 	public String determineWinner()
 	{
-		String winner="";
-		if (playChoice.equals("R") && compChoice.equals("P"))
+		if (playChoice.equals(compChoice)) 
 		{
-			winner = "Computer";
-			winStatement = "Paper Covers Rock";
+			String winner = "!Draw Game!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
-		else if(playChoice.equals("P") && compChoice.equals("R"))
+		else if (playChoice.equals("R") && compChoice.equals("P"))
 		{
-			winner = "Player";
-			winStatement = "Paper Covers Rock";
+			String winner = "!Computer wins <<Paper Covers Rock>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
-		else if(playChoice.equals("P") && compChoice.equals("S"))
+		else if (playChoice.equals("R") && compChoice.equals("S"))
 		{
-			winner = "Computer";
-			winStatement = "Scissors Cuts Paper";
+			String winner = "!Player wins <<Rock Breaks Scissors>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
-		else if(playChoice.equals("S") && compChoice.equals("P"))
+		else if (playChoice.equals("P") && compChoice.equals("R"))
 		{
-			winner = "Player";
-			winStatement = "Scissors Cuts Paper";
+			String winner = "!Players wins <<Paper Covers Rock>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
-		else if(playChoice.equals("R") && compChoice.equals("S"))
+		else if (playChoice.equals("P") && compChoice.equals("S"))
 		{
-			winner = "Player";
-			winStatement = "Rock Crushes Scissors";
+			String winner = "!Computer wins <<Scissors Cuts Paper>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n";  
+			return output + winner;
+		}
+		else if (playChoice.equals("S") && compChoice.equals("P"))
+		{
+			String winner = "!Player wins <<Scissors Cuts Paper>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
 		else if(playChoice.equals("S") && compChoice.equals("R"))
 		{
-			winner = "Computer";
-			winStatement = "Rock Crushes Scissors";
+			String winner = "!Computer wins <<Rocks Breaks Scissors>>!";
+			String output = "Player had " + playChoice.toUpperCase() + "\nComputer had " + compChoice.toUpperCase() + "\n"; 
+			return output + winner;
 		}
-		else if (playChoice.equals(compChoice)) 
+		else
 		{
-			winner = " ";
-			winStatement = "!Draw Game!";
-			
+			String output = "Invalid Statement";
+			return output;
 		}
-		return winner;
 	}
 
 	public String toString()
 	{
-		if (playChoice.equals(compChoice)) {
-			String output="\n" + "Player had: " + playChoice + "\n" + "Computer had: " + compChoice + "\n" + winStatement;
-			return output; 
-		}
-		else {
-		String output="\n" + "Player had: " + playChoice + "\n" + "Computer had: " + compChoice + "\n!" + determineWinner()
-		+ " wins <<" + winStatement + ">>!";
+		String output = determineWinner();
 		return output;
-		}
 	}
 }

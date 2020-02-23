@@ -15,7 +15,10 @@ public class BiggestDouble
 
 	public BiggestDouble(double a, double b, double c, double d)
 	{
-		setDoubles(0,0,0,0);
+		one = a;
+		two = b;
+		three = c;
+		four = d;
 	}
 
 	public void setDoubles(double a, double b, double c, double d)
@@ -28,19 +31,20 @@ public class BiggestDouble
 
 	public double getBiggest()
 	{
-		double max = one;
-		if (two > max)
-			max = two;
-		if (three > max)
-			max = three;
-		if (four > max) 
-			max = four;
-		return max;
-		
+		if (one > two && one > three && one > four) {
+			return one;
+		}
+		else if (two > one && two > three && two > four) {
+			return two;
+		}
+		else if (three > one && three > two && three > four) {
+			return three;
+		}
+		return four;
 	}
 
 	public String toString()
 	{
-	   return one + " " + two + " " + " " + three + " " + four + "\n" + "biggest = " + getBiggest() + "\n";
+	   return "" +one + " "+ two + " " + three + " "+four+ "\n" + "biggest = " + getBiggest();
 	}
 }
