@@ -4,11 +4,11 @@ package Unit9;
 //Name -Arnav Kanodia
 //Date -2/26/20
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ListSumFirst
 {
-	public static int go(List<Integer> ray)
+	public static int go(ArrayList<Integer> ray)
 	{
 		int total = 0;
 		
