@@ -5,7 +5,6 @@ package ElevensLab;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 
@@ -15,6 +14,7 @@ import java.util.Collections;
 	
 	private List<Card> cards;
 	private int top;
+	private int size;
 	
 	public Deck() { 
 		
@@ -27,12 +27,76 @@ import java.util.Collections;
 			}
 		}
 	}
+	
+	public Deck(String[]ranks, String[]suits, int[] pointValues) {
+		cards = new ArrayList<Card>();
+		for(int s = 0; s<suits.length; s++) {
+			for ( int r = 0; r<ranks.length;r++) {
+				cards.add(new Card(ranks[r],suits[s], pointValues[r]));
+			}
+		}
+		size = cards.size();
+		top = size-1;
+		shuffle();
+	}
+	
+	public Card dealCard() {
+		Card output = null;
+		if (size==0) {
+			return output;
+		}
+		if (top<0) {
+			resetTop();
+			top = size -1;
+		}
+		if(top>=0) {
+		output = cards.get(top);
+		top--;
+		size--;
+		}
+		return output;
+	}
+	
+	public boolean isEmpty() {
+		return size()==0;
+	}
+
+	public int size() {
+		return size;
+	}
+	
+	public void shuffle() {
+		Collections.shuffle(cards);
+	}
+	
+	public void resetTop() {
+		size = cards.size();
+		top = size-1;
+	}
+	
+	public String toString() {
+		String output = "size = " + size + "\nUndealt cards: \n";
+		for (int i = size-1; i>=0;i--) {
+			if (i>0) {
+				output += cards.get(i) + ", ";
+			}
+			else 
+				output += cards.get(i) + "\n";
+		}
+		output += "\nDealt cards: \n";
+		for (int k = cards.size()-1;k>=size;k--) {
+			if (k>size) {
+				output += cards.get(k) + ", ";
+			}
+			else 
+				output += cards.get(k) + "\n";
+
+		}
+		return output;
+	}
+	
+	
  }
 
-
    
-   //make a dealCard() method that returns the top card
    
-   //write a shuffle() method
-   	//use Colletions.shuffle
-   	//reset the top card 

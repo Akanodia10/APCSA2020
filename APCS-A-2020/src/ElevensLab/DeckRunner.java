@@ -3,7 +3,6 @@ package ElevensLab;
 //www.apluscompsci.com
 //Name -Arnav Kanodia
 
-import static java.lang.System.*;
 
 public class DeckRunner
 {
