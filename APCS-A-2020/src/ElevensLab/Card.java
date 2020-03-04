@@ -18,6 +18,11 @@ public class Card
 		value = faceValue;
 		point = points;
 	}
+  	
+  	public Card(String suit, int faceValue) {
+		setSuit(suit);
+		setFace(faceValue);
+	}
 
 	
 	public void setFace(int faceValue) {
