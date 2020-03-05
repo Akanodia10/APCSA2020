@@ -2,6 +2,7 @@ package ElevensLab;
 /**
  * This class provides a convenient way to test shuffling methods.
  */
+import java.util.*;
 public class Shuffler {
 
 	/**
@@ -13,7 +14,7 @@ public class Shuffler {
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int VALUE_COUNT = 52;
 
 	/**
 	 * Tests shuffling methods.
@@ -62,6 +63,17 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int [52];
+	    int k = 0;
+	    for (int j = 0; j < (values.length +1)/2; j++){
+	        shuffled [k] = values [j];
+	        k+=2;
+	    }
+	    k=1;
+	    for (int j=26; j<52; j++){
+	        shuffled [k] = values [j];
+	        k+=2;
+	    }
 	}
 
 	/**
@@ -77,5 +89,12 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int k = 0; k <52; k++) {
+			Random rand = new Random();
+			int j = rand.nextInt(52);
+			int num = values[j];
+			values[j] = values[k];
+            values[k] = num;
+		}
 	}
 }

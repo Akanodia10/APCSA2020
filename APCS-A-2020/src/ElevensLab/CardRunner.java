@@ -9,26 +9,23 @@ public class CardRunner
 {
 	public static void main( String args[] )
 	{
-		
-		Card one = new Card("Nine", "SPADES", 9);
-		out.println(one.getSuit());
-		out.println(one.getFace());
+		Card one = new Card("NINE","SPADES", 9);
+		out.println(one.suit());
+		out.println(one.rank());
 
-		
-
-		Card two = new Card("ACE", "DIAMONDS", 1);
+		Card two = new Card("ACE","DIAMONDS", 1);
 		out.println(two);
 		two.setFace(3);
+		two.setPoints(3);
 		out.println(two);
 
-		Card three = new Card("Four", "CLUBS", 4);
+		Card three = new Card("FOUR","CLUBS", 4);
 		out.println(three);
 
-		Card four = new Card("Queen", "SPADES", 12);
+		Card four = new Card("QUEEN","SPADES", 12);
 		out.println(four);
 
-		Card five = new Card("Queen", "HEARTS", 12);
+		Card five = new Card("QUEEN","HEARTS", 12);
 		out.println(five);
-		
 	}
 }

@@ -6,7 +6,7 @@ package ElevensLab;
 public class BlackJackCard extends Card
 {
   	//constructors
-  	public BlackJackCard( String s, int f)
+	public BlackJackCard( String s, int f)
   	{
   		super( s, f );
   	}
@@ -14,11 +14,11 @@ public class BlackJackCard extends Card
   	//accessors
 	public int getValue()
 	{
-		if( getFace() == 1 )
+		if( rankInt() == 1 )
 			return 11;
-		if( getFace() >= 10 )
+		if( rankInt() >= 10 )
 			return 10;
-		return getFace();
+		return rankInt();
 	}
 
   	//toString

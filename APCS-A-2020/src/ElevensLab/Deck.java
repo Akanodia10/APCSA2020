@@ -8,95 +8,93 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
- class Deck {	
-    public static final int NUMCARDS = 52;
+public class Deck {
+	public static final int NUMCARDS = 52;
 	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
-	
+	public static String[] FACE = "ACE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN JACK QUEEN KING".split(" ");
 	private List<Card> cards;
-	private int top;
+	private Card top;
 	private int size;
-	
-	public Deck() { 
-		
+	//make a Deck constructor
+	public Deck () {
+		//refer cards to new ArrayList
 		cards = new ArrayList<Card>();
-		top = 51;
-		
-		for (int s = 0; s<SUITS.length; s++) {
-			for (int f = 1; f<=13; f++) {
-				cards.add(new Card(SUITS[s], f));
+		//loop through all suits
+		for (int i = 0; i <= 3; i++) {
+			//loop through all faces 1 to 13
+			for (int j = 0; j <= 12; j ++) {
+				int point = j+1;
+				if (point > 10)
+					point = 10;
+				cards.add(new Card (FACE[j], SUITS[i], point));
 			}
 		}
+		//add a new TwentyOneCard to the deck
+		
+		//set top to the top of the deck 51
+		size = cards.size();
+		top = cards.get(size-1);
 	}
-	
-	public Deck(String[]ranks, String[]suits, int[] pointValues) {
+	public Deck (String [] r, String [] s, int [] pv) {
 		cards = new ArrayList<Card>();
-		for(int s = 0; s<suits.length; s++) {
-			for ( int r = 0; r<ranks.length;r++) {
-				cards.add(new Card(ranks[r],suits[s], pointValues[r]));
+		for (int i =0; i<= s.length -1; i++) {
+			for (int j = 0; j <= r.length -1; j++) {
+				cards.add(new Card (r[j], s[i], pv[j]));
 			}
 		}
 		size = cards.size();
-		top = size-1;
-		shuffle();
+		top = cards.get(size-1);
 	}
-	
-	public Card dealCard() {
-		Card output = null;
-		if (size==0) {
-			return output;
-		}
-		if (top<0) {
-			resetTop();
-			top = size -1;
-		}
-		if(top>=0) {
-		output = cards.get(top);
-		top--;
-		size--;
-		}
-		return output;
-	}
-	
 	public boolean isEmpty() {
-		return size()==0;
+		if (size == 0)
+			return true;
+		return false;
 	}
-
-	public int size() {
-		return size;
-	}
-	
-	public void shuffle() {
+	//make a dealCard() method that returns the top card
+   //this is not used in shuffle, but kept for later use
+   public void resetTop() {
+	   size = cards.size();
+	   top = cards.get(size -1);
+   }
+   
+   public Card dealCard() {
+		if (isEmpty()) {
+			resetTop();
+		}
+		top = cards.get(size-1);
+		size --;
+		return top;
+   }
+   
+   public int size() {
+	   return size;
+   }
+   
+   //write a shuffle() method
+	public List<Card> shuffle() {
+	   	//use Colletions.shuffle
 		Collections.shuffle(cards);
-	}
-	
-	public void resetTop() {
+	   	//reset the top card
 		size = cards.size();
-		top = size-1;
+		return cards;
 	}
 	
 	public String toString() {
-		String output = "size = " + size + "\nUndealt cards: \n";
-		for (int i = size-1; i>=0;i--) {
-			if (i>0) {
-				output += cards.get(i) + ", ";
+		String str = "";
+		str += "size = " + size;
+		if (isEmpty()) {
+			str+="\nDealt cards:\n";
+			for (int i = 0; i <= cards.size()-1; i++) {
+				str += cards.get(i) + ", ";
 			}
-			else 
-				output += cards.get(i) + "\n";
-		}
-		output += "\nDealt cards: \n";
-		for (int k = cards.size()-1;k>=size;k--) {
-			if (k>size) {
-				output += cards.get(k) + ", ";
+		}else {
+			str +="\nUndealt cards:\n";
+			for (int i = 0; i <= size-1; i++) {
+				str += cards.get(i) + ", ";
 			}
-			else 
-				output += cards.get(k) + "\n";
-
 		}
-		return output;
+		return str;
 	}
-	
-	
- }
-
+}
    
    
