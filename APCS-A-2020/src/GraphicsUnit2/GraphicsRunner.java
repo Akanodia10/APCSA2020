@@ -8,9 +8,8 @@ package GraphicsUnit2;
 //Lab  -
 
 import javax.swing.JFrame; 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class GraphicsRunner extends JFrame
 {
 	private static final int WIDTH = 800;
@@ -33,6 +32,7 @@ public class GraphicsRunner extends JFrame
 
 	public static void main( String args[] )
 	{
+		@SuppressWarnings("unused")
 		GraphicsRunner run = new GraphicsRunner();
 	}
 }

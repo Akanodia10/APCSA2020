@@ -10,12 +10,9 @@ package GraphicsUnit2;
 import java.awt.Font; 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Canvas;
 import javax.swing.JPanel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class MovingShapePanel extends JPanel implements Runnable
 {
 	private Shape sh;
@@ -26,7 +23,7 @@ public class MovingShapePanel extends JPanel implements Runnable
 		setVisible(true);
 
 		//refer sh to a new Shape
-		sh = new Shape(50,50,30,30,Color.green,20,21);
+		 sh= new Shape(100,100,50,50,Color.blue,5,5);
 
 
 		new Thread(this).start();
@@ -70,7 +67,8 @@ public class MovingShapePanel extends JPanel implements Runnable
    	{
    		while(true)
    		{
-   		   Thread.currentThread().sleep(10);
+   		   Thread.currentThread();
+		Thread.sleep(10);
             repaint();
          }
       }catch(Exception e)
