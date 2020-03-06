@@ -1,80 +1,93 @@
 package Unit10;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -Arnav Kanodia
+//Name -
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ToyStore
 {
 	private ArrayList<Toy> toyList;
 
-	public ToyStore(String toys)
+	public ToyStore()
 	{
-		toyList=new ArrayList<Toy>();
-		loadToys(toys);
-		
+		toyList = new ArrayList<Toy>();
 	}
 
 	public void loadToys( String toys )
 	{
 		@SuppressWarnings("resource")
-		Scanner scan = new Scanner(toys);
-		while(scan.hasNext())
+		Scanner toyScanner = new Scanner(toys);
+		while (toyScanner.hasNext())
 		{
-			String t = scan.next();
-			Toy wassup = getThatToy(t);
-			if(wassup == null) 
+			boolean skipIteration = false;
+			Toy checkToy = new Toy(toyScanner.next());
+			for(Toy x: toyList)
 			{
-				Toy ne = new Toy(t);
-				toyList.add(ne);
+				if (x.getName().equals(checkToy.getName()))
+				{
+					x.setCount(x.getCount()+1);
+					skipIteration = true;
+				}
 			}
-			else
-			{
-				wassup.setCount(wassup.getCount()+1);
-			}
+			if (skipIteration)
+				continue;
+			else 
+				toyList.add(checkToy);
 		}
 	}
-  
+	public ArrayList<Toy> getList()
+	{
+		return toyList;
+	}
   	public Toy getThatToy( String nm )
   	{
-  		for(Toy i : toyList)
-  		{
-  			if(i.getName().equals(nm)) 
-  			{
-  				return i;
-  			}
-  		}
-  		return null;  	}
+  		for (Toy z : toyList)
+  			if (nm.equals(z.getName()))
+  				return z;
+  		return null;
+  	}
   
-  	public Toy getMostFrequentToy()
+  	public String getMostFrequentToy()
   	{
-  		int max = toyList.get(0).getCount();
-  		Toy max2 = toyList.get(0);
-  		for(Toy i : toyList)
-  		{
-  			if (i.getCount() > max) 
-  			{
-  				max = i.getCount();
-  				max2 = i;
-  			}
-  		}
-  		return max2;  	}  
+  		//Alternative way without using the sortToysByCount method
+  		/*Toy mostFrequentToy = toyList.get(0);
+  		for (Toy y : toyList)
+  			if(y.getCount() > mostFrequentToy.getCount())
+  				mostFrequentToy = y;
+  		for (Toy n : toyList)
+  			if(n.getCount()==mostFrequentToy.getCount() && toyList.indexOf(n) != toyList.indexOf(mostFrequentToy))
+  				return "There is either more than one \"most frequent\" toy or all toys have the same frequency of "
+  						+ mostFrequentToy.getCount();
+  		return mostFrequentToy.getName(); */
+  		sortToysByCount();
+  		Toy mostFrequentToy = toyList.get(0);
+  		for (int x = 1;x<toyList.size();x++)
+  			if(toyList.get(x).getCount() == mostFrequentToy.getCount())
+  				return "There is either more than one \"most frequent\" toy or all toys have the same frequency of "
+					+ mostFrequentToy.getCount();
+  		return mostFrequentToy.getName();
+  	}  
   
-  	public ArrayList<Toy> sortToysByCount()
+  	public void sortToysByCount()
   	{
-  		ArrayList<Toy> temp = new ArrayList<Toy>();
-  		while(toyList.size() > 0)
+  		ArrayList<Toy> sortedToys = new ArrayList<Toy>();
+  		int i = 0;
+  		while (sortedToys.size() < toyList.size())
   		{
-  			temp.add(getMostFrequentToy());
-  			toyList.remove(getMostFrequentToy());
+  			for (Toy t : toyList)
+  				if (t.getCount() == i)
+  					sortedToys.add(t);
+  			i++;
   		}
-  		return temp;
+  		for (Toy f : sortedToys)
+  			toyList.set(toyList.size() - sortedToys.indexOf(f) - 1, f);
   	}  
   	  
 	public String toString()
 	{
-		return toyList.toString() + "\nmax == " + getMostFrequentToy() + "\nSorted by count:" + sortToysByCount();
+	   sortToysByCount();
+	   return toyList + "\n" + "max == " + getMostFrequentToy();
 	}
 }
