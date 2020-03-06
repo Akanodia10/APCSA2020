@@ -1,42 +1,80 @@
 package Unit10;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name -Arnav Kanodia
 
 import java.util.Scanner;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
-import static java.lang.System.*;
 
 public class ToyStore
 {
 	private ArrayList<Toy> toyList;
 
-	public ToyStore()
+	public ToyStore(String toys)
 	{
+		toyList=new ArrayList<Toy>();
+		loadToys(toys);
+		
 	}
 
 	public void loadToys( String toys )
 	{
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(toys);
+		while(scan.hasNext())
+		{
+			String t = scan.next();
+			Toy wassup = getThatToy(t);
+			if(wassup == null) 
+			{
+				Toy ne = new Toy(t);
+				toyList.add(ne);
+			}
+			else
+			{
+				wassup.setCount(wassup.getCount()+1);
+			}
+		}
 	}
   
   	public Toy getThatToy( String nm )
   	{
-  		return null;
-  	}
+  		for(Toy i : toyList)
+  		{
+  			if(i.getName().equals(nm)) 
+  			{
+  				return i;
+  			}
+  		}
+  		return null;  	}
   
-  	public String getMostFrequentToy()
+  	public Toy getMostFrequentToy()
   	{
-  		return "";
-  	}  
+  		int max = toyList.get(0).getCount();
+  		Toy max2 = toyList.get(0);
+  		for(Toy i : toyList)
+  		{
+  			if (i.getCount() > max) 
+  			{
+  				max = i.getCount();
+  				max2 = i;
+  			}
+  		}
+  		return max2;  	}  
   
-  	public void sortToysByCount()
+  	public ArrayList<Toy> sortToysByCount()
   	{
+  		ArrayList<Toy> temp = new ArrayList<Toy>();
+  		while(toyList.size() > 0)
+  		{
+  			temp.add(getMostFrequentToy());
+  			toyList.remove(getMostFrequentToy());
+  		}
+  		return temp;
   	}  
   	  
 	public String toString()
 	{
-	   return "";
+		return toyList.toString() + "\nmax == " + getMostFrequentToy() + "\nSorted by count:" + sortToysByCount();
 	}
 }
