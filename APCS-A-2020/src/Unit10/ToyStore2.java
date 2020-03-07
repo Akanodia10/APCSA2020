@@ -17,10 +17,7 @@ public class ToyStore2
 		toyList = new ArrayList<Toy>();
 		loadToys(toys);
 	}
-	public String myName(){
-		System.out.println("Arnav Kanodia");
-		return "Arnav Kanodia";
-	}
+	
 	public void loadToys( String toys )
 	{
 		String[] toyNames = toys.split(" ");
@@ -72,5 +69,9 @@ public class ToyStore2
 	public String toString()
 	{
 		return toyList.toString();
+	}
+	public String myName(){
+		System.out.println("Arnav Kanodia");
+		return "Arnav Kanodia";
 	}
 }
