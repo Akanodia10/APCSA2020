@@ -11,35 +11,36 @@ public class Toy
 
 	public Toy()
 	{
+		this.count =1;
+		this.name = "";
+	}
+	public Toy(String name)
+	{
+		this.count =1;
+		this.name = name;
 	}
 
-	public Toy( String nm )
+	public void setCount(int count)
 	{
-		name=nm;
+		this.count = count;
 	}
 	
-	public int getCount()
+	public void setName(String name)
 	{
-		return count;
+		this.name = name;
 	}
-	
-	public void setCount( int cnt )
-	{
-		count=cnt;
-	}
-	
+
 	public String getName()
 	{
 		return name;
 	}
-	
-	public void setName( String nm )
+	public int getCount()
 	{
-		name=nm;
+		return count;
 	}
 
 	public String toString()
 	{
-	   return name + " " + count;
+		return name + " " + count;
 	}
 }
