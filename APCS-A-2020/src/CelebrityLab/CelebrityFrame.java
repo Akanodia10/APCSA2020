@@ -9,6 +9,7 @@ import javax.swing.JPanel;
  * @author cody.henrichsen
  * @version 2.1 17/09/2018
  */
+@SuppressWarnings("serial")
 public class CelebrityFrame extends JFrame
 {
 	//Data members for the JFrame subclass instance 

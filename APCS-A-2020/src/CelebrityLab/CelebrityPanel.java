@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
  * @author cody.henrichsen
  * @version 2.9 18/09/2018 Adjusted the listener functionality.
  */
+@SuppressWarnings("serial")
 public class CelebrityPanel extends JPanel
 {
 

@@ -17,8 +17,9 @@ public class LiteratureCelebrity extends Celebrity
 	 * Builds a LiteratureCelebrity instance with an answer and a series of clues as a String separated by commas.
 	 * @param answer The literature celebrity
 	 * @param clues Clues for the literature celebrity 
+	 * @param string 
 	 */
-	public LiteratureCelebrity(String answer, String clues)
+	public LiteratureCelebrity(String answer, String clues, String string)
 	{
 		super(answer, clues);
 		processClues();

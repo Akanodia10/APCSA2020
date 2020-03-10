@@ -18,6 +18,7 @@ import javax.swing.SpringLayout;
  * @author cody.henrichsen
  * @version 2.1 18/09/2018 Refactored away validation to controller.
  */
+@SuppressWarnings("serial")
 public class StartPanel extends JPanel
 {
 	/**
@@ -126,7 +127,7 @@ public class StartPanel extends JPanel
 		this.literatureClue = "Enter the clues for the literature celeb separated by commas";
 		this.clueLabel = new JLabel(celebrityClue);
 		
-		this.answerField = new JTextField("Type celebrity here (4 letters minimum thx Cher)");
+		this.answerField = new JTextField("Type celebrity here (4 letters minimum)");
 		this.clueField = new JTextField("Enter celebrity clue here (10 letters minimum)");
 		this.addCelebrityButton = new JButton("Add current celebrity");
 		this.startButton = new JButton("Start Celebrity game");
