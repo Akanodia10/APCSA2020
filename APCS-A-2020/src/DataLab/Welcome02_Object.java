@@ -42,7 +42,7 @@ public class Welcome02_Object {
 
 
 	/* Represents a weather observation */
-	class Observation {
+class Observation {
 	   float temp;    // in fahrenheit
 	   int windDir;   // in degrees
 	   String description;
@@ -62,5 +62,4 @@ public class Welcome02_Object {
 	   public String toString() {
 	      return (temp + " degrees; " + description + " (wind: " + windDir + " degrees)");
 	   }
-	  
 	}
