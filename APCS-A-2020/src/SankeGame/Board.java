@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -45,12 +46,13 @@ public class Board extends JPanel implements ActionListener {
 
     public Board() {
         
-        createBoard();
+    	createBoard();
     }
     
     private void createBoard() {
 
-        addKeyListener(new TAdapter());
+        setEnabled(true);
+    	addKeyListener(new TAdapter());
         setBackground(Color.black);
         setFocusable(true);
 
@@ -212,11 +214,12 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private class TAdapter extends KeyAdapter {
-
+    	
         @Override
         public void keyPressed(KeyEvent e) {
 
             int key = e.getKeyCode();
+            System.out.println(key);
 
             if ((key == KeyEvent.VK_LEFT) && (!rightdir)) {
                 leftdir = true;
@@ -242,5 +245,6 @@ public class Board extends JPanel implements ActionListener {
                 leftdir = false;
             }
         }
+        
     }
 }

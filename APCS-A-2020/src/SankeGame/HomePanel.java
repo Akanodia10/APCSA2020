@@ -20,7 +20,7 @@ public class HomePanel extends JPanel{
 
 	public HomePanel(Game game) {
 		super();
-		this.controller = game;
+		this.controller=game;
 		playButton = new JButton("PLAY"); 
 		
 		

@@ -1,7 +1,9 @@
 package SankeGame;
 
+import java.awt.CardLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Snake extends JFrame {
@@ -12,9 +14,9 @@ public class Snake extends JFrame {
     }
     
     private void initUI() {
-        
         add(new Board());
-               
+		
+		
         setResizable(false);
         pack();
         
